@@ -1,6 +1,9 @@
-# Run on top of ubuntu
-FROM dockerfile/ubuntu
-MAINTAINER Tobias Wiens <tobwiens@gmail.com>
+# Run on top of ubuntu:14.04
+FROM ubuntu
+MAINTAINER Tobias Wiens <https://github.com/tobwiens/proactive-scheduler-dockerfile/>
+
+# Update and install tools
+RUN ["/bin/bash", "-c", "apt-get update && apt-get install wget unzip -y"]
 
 # Environment variables - determine the proactive version
 ENV PROACTIVE_ZIP ProActiveWorkflowsScheduling-linux-x64-6.1.0.zip
