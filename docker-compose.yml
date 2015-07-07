@@ -1,0 +1,9 @@
+ProActive_Server:
+    image: tobwiens/proactive-scheduler
+    ports:
+        - "8080:8080"
+ProActive_Node:
+    image: tobwiens/proactive-node
+    links:
+        - ProActive_Scheduler:Master
+    command: -r Master
