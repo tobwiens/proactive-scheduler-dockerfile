@@ -1,5 +1,5 @@
 # Run on top of ubuntu:14.04
-FROM ubuntu
+FROM ubuntu:14.04
 MAINTAINER Tobias Wiens <https://github.com/tobwiens/proactive-scheduler-dockerfile/>
 
 # Update and install tools
