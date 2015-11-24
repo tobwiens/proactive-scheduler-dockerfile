@@ -6,4 +6,5 @@ ProActiveNode:
     image: tobwiens/proactive-node:6.1.0
     links:
         - ProActiveServer:Master
-    command: -r Master
+    command: -r pnp://Master:64738
+    privileged: true
