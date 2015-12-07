@@ -6,8 +6,8 @@ MAINTAINER Tobias Wiens <https://github.com/tobwiens/proactive-scheduler-dockerf
 RUN ["/bin/bash", "-c", "apt-get update && apt-get install wget unzip -y"]
 
 # Environment variables - determine the proactive version
-ENV PROACTIVE_ZIP ProActiveWorkflowsScheduling-linux-x64-7.0.0-RC2.zip
-ENV PROACTIVE_URL_TO_ZIP http://www.activeeon.com/public_content/releases/ProActive/7.0.0-RC2
+ENV PROACTIVE_ZIP ProActiveWorkflowsScheduling-linux-x64-7.0.0.zip
+ENV PROACTIVE_URL_TO_ZIP http://www.activeeon.com/public_content/releases/ProActive/7.0.0
 ENV PROACTIVE_HOME /data/scheduling
 
 # Create directories
