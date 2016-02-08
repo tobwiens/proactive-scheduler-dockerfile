@@ -1,9 +1,9 @@
 ProActiveServer:
-    image: tobwiens/proactive-scheduler:7.3.0
+    image: tobwiens/proactive-scheduler:7.3.1
     ports:
         - "8080:8080"
 ProActiveNode:
-    image: tobwiens/proactive-node:7.3.0
+    image: tobwiens/proactive-node:7.3.1
     links:
         - ProActiveServer:Master
     command: -r pnp://Master:64738
