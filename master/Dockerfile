@@ -18,7 +18,7 @@ WORKDIR /data
 # Build Scheduling
 RUN ["/bin/bash", "-c", " git clone https://github.com/ow2-proactive/scheduling.git"]
 WORKDIR /data/scheduling
-RUN ["/bin/bash", "-c", "./gradlew dist"]
+RUN ["/bin/bash", "-c", "./gradlew serialver dist"]
 
 # Create directories for the web interfaces
 RUN ["/bin/bash", "-c", "mkdir dist/war/studio && \
