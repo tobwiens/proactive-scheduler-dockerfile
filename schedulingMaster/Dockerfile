@@ -20,7 +20,7 @@ WORKDIR /data
 # Build Scheduling
 RUN ["/bin/bash", "-c", " git clone https://github.com/ow2-proactive/scheduling.git"]
 WORKDIR /data/scheduling
-RUN ["/bin/bash", "-c", "./gradlew dist"]
+RUN ["/bin/bash", "-c", "./gradlew serialver dist"]
 
 EXPOSE 8080
 
