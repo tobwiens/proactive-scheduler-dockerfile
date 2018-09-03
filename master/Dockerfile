@@ -1,6 +1,9 @@
 # Java-8
 FROM java:openjdk-8-jdk
-MAINTAINER Tobias Wiens <https://github.com/tobwiens/proactive-scheduler-dockerfile/>
+
+# Add user for proactive installation
+RUN add user proactive
+USER proactive
 
 # Update and install tools
 RUN ["/bin/bash", "-c", "apt-get update && apt-get install git -y"]
