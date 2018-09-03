@@ -2,7 +2,7 @@
 FROM java:openjdk-8-jdk
 
 # Add user for proactive installation
-RUN add user proactive
+RUN adduser proactive
 USER proactive
 
 # Update and install tools
