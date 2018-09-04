@@ -51,8 +51,8 @@ mv scheduler-portal/build/libs/scheduler-portal-*.war $PROACTIVE_HOME/dist/war/s
 mv rm-portal/build/libs/rm-portal-*.war $PROACTIVE_HOME/dist/war/rm.war && \
 rm -rf $TMP_FOLDER/scheduling-portal"]
 
-VOLUME ${$PROACTIVE_HOME}/logs
-VOLUME ${$PROACTIVE_HOME}/data
+VOLUME ${PROACTIVE_HOME}/logs
+VOLUME ${PROACTIVE_HOME}/data
 VOLUME /tmp
 
 EXPOSE 8080
