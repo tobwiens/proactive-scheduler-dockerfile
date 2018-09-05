@@ -15,8 +15,8 @@ RUN ["/bin/bash", "-c", "apt-get update && apt-get install git -y"]
 
 # Add user for proactive installation
 RUN groupadd ${USER_GROUP}
-RUN useradd ${USER} -g ${USER_GROUP} -m
-USER ${USER}
+RUN useradd ${USER} -g 0 -m
+#USER ${USER}
 
 
 # Create directories
@@ -54,8 +54,9 @@ rm -rf $TMP_FOLDER/scheduling-portal"]
 VOLUME ${PROACTIVE_HOME}/logs
 VOLUME ${PROACTIVE_HOME}/data
 VOLUME /tmp
+VOLUME ${PROACTIVE_HOME}/config
 
 EXPOSE 8080
 
 # Run proactive scheduler with zero nodes
-ENTRYPOINT ["/bin/bash", "-c", "$PROACTIVE_HOME/bin/proactive-server", "-ln" ,"0", "-Dproactive.useIPaddress=true"]
+ENTRYPOINT ["/bin/bash", "-c", "$PROACTIVE_HOME/bin/proactive-server", "-ln" ,"0", "-Dproactive.useIPaddress=true", "-Dpa.scheduler.create.credentials.when.login=false"]
