@@ -1,3 +1,17 @@
+FROM java:openjdk-8-jdk as scheduling-api
+
+WORKDIR /data
+# Update and install tools
+RUN ["/bin/bash", "-c", "apt-get update && apt-get install git -y"]
+
+RUN git clone https://github.com/ow2-proactive/scheduling-api.git
+RUN pwd
+RUN ls scheduling-api/scheduling-api-http/
+
+WORKDIR /data/scheduling-api
+RUN ./gradlew build war
+
+
 # Java-8
 FROM java:openjdk-8-jdk
 
@@ -51,6 +65,9 @@ mv scheduler-portal/build/libs/scheduler-portal-*.war $PROACTIVE_HOME/dist/war/s
 mv rm-portal/build/libs/rm-portal-*.war $PROACTIVE_HOME/dist/war/rm.war && \
 rm -rf $TMP_FOLDER/scheduling-portal"]
 
+COPY --from=scheduling-api /data/scheduling-api/scheduling-api-http/build/libs/*.war $PROACTIVE_HOME/dist/war/scheduling-api.war:
+
+# Don't write credentials files on login, because the config directory should be read-only, OpenShift enforces that
 RUN sed -i -e 's/pa.scheduler.create.credentials.when.login=true/pa.scheduler.create.credentials.when.login=false/g' $PROACTIVE_HOME/config/scheduler/settings.ini
 
 VOLUME ${PROACTIVE_HOME}/logs
