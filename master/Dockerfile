@@ -51,6 +51,8 @@ mv scheduler-portal/build/libs/scheduler-portal-*.war $PROACTIVE_HOME/dist/war/s
 mv rm-portal/build/libs/rm-portal-*.war $PROACTIVE_HOME/dist/war/rm.war && \
 rm -rf $TMP_FOLDER/scheduling-portal"]
 
+RUN sed -i -e 's/pa.scheduler.create.credentials.when.login=true/pa.scheduler.create.credentials.when.login=false/g' $PROACTIVE_HOME/config/scheduler/settings.ini
+
 VOLUME ${PROACTIVE_HOME}/logs
 VOLUME ${PROACTIVE_HOME}/data
 VOLUME /tmp
@@ -58,5 +60,6 @@ VOLUME ${PROACTIVE_HOME}/config
 
 EXPOSE 8080
 
-# Run proactive scheduler with zero nodes
-ENTRYPOINT ["/bin/bash", "-c", "$PROACTIVE_HOME/bin/proactive-server", "-ln" ,"0", "-Dproactive.useIPaddress=true", "-Dpa.scheduler.create.credentials.when.login=false"]
+# Run proactive scheduler with zero nodes (Not shell exec form here, because we need to pass
+#  parameters to the script and not the shell)
+ENTRYPOINT ["/home/paserver/data/scheduling/bin/proactive-server", "-ln", "0", "-Dproactive.useIPaddress=true"]
