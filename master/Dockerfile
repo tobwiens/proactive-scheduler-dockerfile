@@ -65,7 +65,7 @@ mv scheduler-portal/build/libs/scheduler-portal-*.war $PROACTIVE_HOME/dist/war/s
 mv rm-portal/build/libs/rm-portal-*.war $PROACTIVE_HOME/dist/war/rm.war && \
 rm -rf $TMP_FOLDER/scheduling-portal"]
 
-COPY --from=scheduling-api /data/scheduling-api/scheduling-api-http/build/libs/*.war $PROACTIVE_HOME/dist/war/scheduling-api.war:
+COPY --from=scheduling-api /data/scheduling-api/scheduling-api-http/build/libs/*.war $PROACTIVE_HOME/dist/war/scheduling-api.war
 
 # Don't write credentials files on login, because the config directory should be read-only, OpenShift enforces that
 RUN sed -i -e 's/pa.scheduler.create.credentials.when.login=true/pa.scheduler.create.credentials.when.login=false/g' $PROACTIVE_HOME/config/scheduler/settings.ini
