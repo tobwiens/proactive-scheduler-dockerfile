@@ -45,10 +45,8 @@ RUN ["/bin/bash", "-c", " git clone https://github.com/ow2-proactive/scheduling.
 WORKDIR ${PROACTIVE_HOME}
 RUN ["/bin/bash", "-c", "./gradlew serialver dist"]
 
-# Create directories for the web interfaces
-RUN ["/bin/bash", "-c", "mkdir dist/war/studio && \
-mkdir dist/war/rm && \
-mkdir dist/war/scheduler"]
+# Create directories for the studio interfaces
+RUN ["/bin/bash", "-c", "mkdir dist/war/studio"]
 
 # Get Studio interface
 WORKDIR ${TMP_FOLDER}
