@@ -47,13 +47,13 @@ define(function () {
             'R': 'r'
         },
         languages_available: {
-            'Script/selection' : [" ", "scalaw", "groovy", "javascript", "python", "ruby"],
-            'Script/environment' : [" ", "scalaw", "groovy", "javascript", "python", "ruby"],
-            'Script/pre' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "ruby", "perl"],
-            'Script/task' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "ruby", "perl"],
-            'Script/post' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python","ruby", "perl"],
-            'Script/flow' : [" ", "scalaw", "groovy", "javascript", "python", "ruby"],
-            'Script/clean' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "ruby", "perl"]
+            'Script/selection' : [" ", "scalaw", "groovy", "javascript", "python", "cpython", "ruby"],
+            'Script/environment' : [" ", "scalaw", "groovy", "javascript", "python", "cpython", "ruby"],
+            'Script/pre' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython", "ruby", "perl"],
+            'Script/task' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython", "ruby", "perl"],
+            'Script/post' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython","ruby", "perl"],
+            'Script/flow' : [" ", "scalaw", "groovy", "javascript", "python", "cpython", "ruby"],
+            'Script/clean' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython", "ruby", "perl"]
         },
         extensions_to_languages: {
             "sc": "scalaw",

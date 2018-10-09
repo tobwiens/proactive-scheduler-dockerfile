@@ -5,7 +5,7 @@ WORKDIR /data
 # Update and install tools
 RUN ["/bin/bash", "-c", "apt-get update && apt-get install git -y"]
 
-RUN git clone -b 8.3.X https://github.com/ow2-proactive/scheduling-api.git
+RUN git clone https://github.com/ow2-proactive/scheduling-api.git
 RUN pwd
 RUN ls scheduling-api/scheduling-api-http/
 
@@ -19,7 +19,7 @@ WORKDIR /data
 # Update and install tools
 RUN ["/bin/bash", "-c", "apt-get update && apt-get install git -y"]
 
-RUN git clone -b 8.3.X https://github.com/ow2-proactive/catalog.git
+RUN git clone https://github.com/ow2-proactive/catalog.git
 
 WORKDIR /data/catalog
 RUN ./gradlew build war
@@ -31,7 +31,7 @@ WORKDIR /data
 # Update and install tools
 RUN ["/bin/bash", "-c", "apt-get update && apt-get install git -y"]
 
-RUN git clone -b openshiftExamples https://github.com/tobwiens/proactive-examples.git
+RUN git clone -b master https://github.com/ow2-proactive/proactive-examples.git
 
 WORKDIR /data/proactive-examples
 RUN ./gradlew zip
@@ -42,7 +42,7 @@ WORKDIR /data
 
 RUN ["/bin/bash", "-c", "apt-get update && apt-get install git npm -y"]
 
-RUN git clone -b 8.3.X https://github.com/ow2-proactive/automation-dashboard.git
+RUN git clone https://github.com/ow2-proactive/automation-dashboard.git
 
 WORKDIR /data/automation-dashboard
 
@@ -86,7 +86,7 @@ mkdir $TMP_FOLDER"]
 WORKDIR ${DATA_FOLDER}
 
 # Build Scheduling
-RUN ["/bin/bash", "-c", " git clone -b loadPackagesSubPath https://github.com/tobwiens/scheduling.git"]
+RUN ["/bin/bash", "-c", " git clone https://github.com/ow2-proactive/scheduling.git"]
 WORKDIR ${PROACTIVE_HOME}
 RUN ["/bin/bash", "-c", "./gradlew serialver dist"]
 
@@ -95,13 +95,13 @@ RUN ["/bin/bash", "-c", "mkdir dist/war/studio"]
 
 # Get Studio interface
 WORKDIR ${TMP_FOLDER}
-RUN ["/bin/bash", "-c", "git clone -b makeExamplesBucketConfigurable https://github.com/tobwiens/studio.git && \
+RUN ["/bin/bash", "-c", "git clone https://github.com/ow2-proactive/studio.git && \
 mv studio/app/* $PROACTIVE_HOME/dist/war/studio/ && \
 rm -rf $TMP_FOLDER/studio"]
 
 # Get Scheduler and Resource Manager Interface
 WORKDIR ${TMP_FOLDER}
-RUN ["/bin/bash", "-c", "git clone -b 8.3.X https://github.com/ow2-proactive/scheduling-portal.git && \
+RUN ["/bin/bash", "-c", "git clone https://github.com/ow2-proactive/scheduling-portal.git && \
 cd scheduling-portal && \
 ./gradlew war && \
 mv scheduler-portal/build/libs/scheduler-portal-*.war $PROACTIVE_HOME/dist/war/scheduler.war && \
