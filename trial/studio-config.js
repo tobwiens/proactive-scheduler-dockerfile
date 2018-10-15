@@ -30,7 +30,8 @@ define(function () {
             'Python': 'templates/script_cpython.xml',
             'Perl': 'templates/script_perl.xml',
             'PHP' : 'templates/php_script.xml',
-            'Cron': 'templates/script_cron.xml'
+            'Cron': 'templates/script_cron.xml',
+            'LDAP Query': 'templates/script_ldap_query.xml'
         },
         modes: {
             'bash': 'shell',
@@ -41,6 +42,7 @@ define(function () {
             'groovy': 'groovy',
             'javascript': 'javascript',
             'python': 'python',
+            'cpython': 'python',
             'ruby': 'ruby',
             'perl': 'perl',
             'powershell': 'powershell',
@@ -51,7 +53,7 @@ define(function () {
             'Script/environment' : [" ", "scalaw", "groovy", "javascript", "python", "cpython", "ruby"],
             'Script/pre' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython", "ruby", "perl"],
             'Script/task' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython", "ruby", "perl"],
-            'Script/post' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython","ruby", "perl"],
+            'Script/post' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython", "ruby", "perl"],
             'Script/flow' : [" ", "scalaw", "groovy", "javascript", "python", "cpython", "ruby"],
             'Script/clean' : [" ", "bash", "cmd", "scalaw", "groovy", "javascript", "python", "cpython", "ruby", "perl"]
         },
@@ -124,6 +126,10 @@ define(function () {
             'PA_NODE_URL', 'PA_NODE_NAME', 'PA_NODE_HOST'
         ],
         manuals: {
+            'Email Notification' : 'templates/email.xml',
+            'Web Notification' : 'templates/webnotification.xml',
+            'Email Validation' : 'templates/email_validation.xml',
+            'Web Validation' : 'templates/web_validation.xml'
         },
         controls: {
             'If': 'templates/07_workflow_branch.xml',
@@ -132,8 +138,10 @@ define(function () {
             'Task Dependencies': 'templates/02_task_dependencies.xml',
             'Submit Job No Wait': 'templates/SubmitJobNoWait.xml',
             'Submit Job And Wait': 'templates/SubmitJobAndWait.xml',
-            'Wait for Any': 'templates/wait_for_any.xml'
+            'Wait for Any': 'templates/wait_for_any.xml',
+            'Wait for Any Replicate': 'templates/wait_for_any_replicate.xml',
+            'Submit and Wait for Any': 'templates/submit_and_wait_for_any.xml'
         },
-        examples_bucket: "openshift-examples"
+        examples_bucket: "basic-examples"
     };
 });
